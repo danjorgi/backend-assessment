@@ -1,3 +1,5 @@
+const goals = [];
+
 module.exports = {
 
     getCompliment: (req, res) => {
@@ -17,6 +19,20 @@ module.exports = {
         let randomFortune = fortunes[randomIndex];
 
         res.status(200).send(randomFortune);
-    }
+    },
+
+    createGoal: (req, res) => {
+        const { text } = req.body;
+        if (text) {
+            const newGoal = {
+                id: goals.length + 1,
+                text,
+            };
+            goals.push(newGoal);
+            res.status(201).json(newGoal);
+        } else {
+            res.status(400).json({ message: 'Invalid goal data' });
+        }
+    },
 
 }
