@@ -5,6 +5,7 @@ const goalInput = document.getElementById("goalInput");
 const addGoalBtn = document.getElementById("addGoalButton");
 const goalList = document.getElementById("goalList");
 
+
 const baseURL = 'http://localhost:4000/api'
 
 let goalCount = 0;
