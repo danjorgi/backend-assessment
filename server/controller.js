@@ -35,4 +35,15 @@ module.exports = {
         }
     },
 
+    deleteGoal: (req, res) => {
+        const { id } = req.params;
+        const goalIndex = goals.findIndex(goal => goal.id === parseInt(id, 10));
+        if (goalIndex !== -1) {
+            goals.splice(goalIndex, 1);
+            res.status(204).end();
+        } else {
+            res.status(404).json({ message: 'Goal not found'});
+        }
+    }
+
 }
